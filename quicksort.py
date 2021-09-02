@@ -5,18 +5,21 @@ def quicksort(low, high, arr):
         quicksort(pivot_index + 1, high, arr)
 
 def partition(low, high, arr):
-    pivot = high
-    i = low - 1
-    for j in range(low, high):
-        if arr[j] < arr[pivot]:
-            i += 1
-            arr[i], arr[j] = arr[j], arr[i]
-    arr[i + 1], arr[high] = arr[high] , arr[i + 1]
-    return i + 1
+    pivot = arr[high]
+    pos = low  
+    for small in range(low, high):
+        if arr[small] < pivot:
+            arr[pos], arr[small] = arr[small], arr[pos]
+            pos += 1
+    arr[pos], arr[high] = arr[high], arr[pos]
+    return pos 
 
-arr = [8,213,9,1,10,10,14,23,35,4,31,2]
+
+arr = [8,213,9,1,10,10,14,23,35,4,31,2] 
+arr_cp = sorted(arr) 
+# arr = [2,1,4,3,5]
 quicksort(0, len(arr) - 1, arr)
-print(arr)
+print(arr == arr_cp)
 
 
 
