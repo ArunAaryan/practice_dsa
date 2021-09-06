@@ -15,10 +15,16 @@ def partition(low, high, arr):
     return pos 
 
 
-arr = [8,213,9,1,10,10,14,23,35,4,31,2] 
+# arr = [8,213,9,1,10,10,14,23,35,4,31,2] 
+import random
+# arr = [2, 5, 1, 3, 9, 8]
+arr = []
+for _ in range(100):
+    arr.append(random.randint(1, 100))
+print(arr)
 arr_cp = sorted(arr) 
-# arr = [2,1,4,3,5]
 quicksort(0, len(arr) - 1, arr)
+print(arr)
 print(arr == arr_cp)
 
 
