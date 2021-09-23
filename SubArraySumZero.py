@@ -7,5 +7,5 @@ def subArraySumZero(nums):
             return True
         is_present.add(sum)
     return False
-res = subArraySumZero([-3,  3, 1, 6])
+res = subArraySumZero([3, -1, -1, -1, 6])
 print(res)
