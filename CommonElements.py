@@ -22,6 +22,7 @@ def commonElements(x, y, z):
             second += 1
             third += 1
     return res
+
 def commonElementsGFGApproach(x, y, z):
     first = second = third = 0
     res = []
