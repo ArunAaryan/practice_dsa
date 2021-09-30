@@ -9,4 +9,5 @@ class Solution:
         return max(cache)
 c = Solution()
 res = c.longest_increasing_subsequence([1,6,3,4,5])
+res = c.longest_increasing_subsequence([1,202,2,3,200,4,5])
 print(res)
