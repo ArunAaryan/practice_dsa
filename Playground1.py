@@ -1,29 +1,23 @@
-from BinaryTreeMaker import TreeMaker, Node
+def loveSeventeen(S):
+    number_map = {}
+    for num in S:
+        val = int(num)
+        if val in number_map:
+            number_map[val] += 1 
+        else:
+            number_map[val] = 1 
+    print(number_map)
+    for num in number_map.keys():
+        req = 17 - num
+        if req in number_map and number_map[req] > 0 and number_map[num] > 0:
+            remove = min(number_map[req],number_map[num])
+            number_map[req] -= remove
+            number_map[num] -= remove
+    print(number_map)
+    left = 0
+    for val in number_map:
+        left += number_map[val] 
+    return left
 
 
-t = TreeMaker()
-root = Node(1)
-root = t.levelOrderBuilder([1,2,3, 4, 5, 6, 7],root, 0, 7)
-
-from collections import deque
-def levelOrderPrint(root):
-    if not root:
-        return []
-    res = []
-    current = deque()
-    current.append(root)
-    while current:
-        next_level = []
-        traversed = []
-        for node in current:
-            traversed.append(node.val)
-            if node.left:
-                next_level.append(node.left)  
-            if node.right:
-                next_level.append(node.right)  
-        current = deque(next_level)
-        res.append(traversed)
-    return res
-res = levelOrderPrint(root)
-print(res[2])
-
+print(loveSeventeen('389889'))
