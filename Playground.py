@@ -1,18 +1,28 @@
-from itertools import cycle
-string  = 'abcd'
-c = cycle(string) 
+import sys
+def solveWordWrap(arr, n, k):
+    dp = [0] * n
+    dp[n - 1] = 0
+    for i in range(n - 2, -1, -1):
+        currlen = -1
+        dp[i] = sys.maxsize
+        for j in range(i, n):
+            currlen += (arr[j] + 1)
+            if (currlen > k):
+                break
+            if (j == n - 1):
+                cost = 0
+            else:
+                cost = ((k - currlen) * 
+                        (k - currlen) + dp[j + 1])
+            if (cost < dp[i]):
+                dp[i] = cost
+    print(dp)
+# Driver Code
+if __name__ == "__main__":
+    
+    arr = [3,2,2 ]
+    n = len(arr)
+    M = 4
+    solveWordWrap(arr, n, M)
 
-res = []
-for i in range(len(string)):
-    st = ''
-    count = 0 
-    for j in (c):
-        if count == len(string):
-            break
-        st += j
-        count += 1
-    res.append(st)
-    res.append(st[::-1])
-res = set(res)
-print(len(res))
-
+# This code is contributed by ita_c
