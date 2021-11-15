@@ -4,10 +4,10 @@ class Solution:
         while (last >= 0 and nums[last + 1] <= nums[last]):
             last -= 1
         if last >= 0:
-            last_greater = len(nums) - 1
-            while nums[last_greater] <= nums[last]:
-                last_greater -= 1
-            nums[last], nums[last_greater] = nums[last_greater], nums[last]
+            just_greater = len(nums) - 1
+            while nums[just_greater] <= nums[last]:
+                just_greater -= 1
+            nums[last], nums[just_greater] = nums[just_greater], nums[last]
         self.reverse(nums,last + 1)
         return nums
     def reverse(self,nums, i):
@@ -18,5 +18,5 @@ class Solution:
             s += 1
             j -= 1
 s = Solution()
-res = s.nextPermutation([3, 2, 1])
+res = s.nextPermutation([1, 4, 2, 3])
 print(res)
