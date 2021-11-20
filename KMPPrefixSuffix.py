@@ -7,5 +7,5 @@ def longestPrefixSuffix(s):
         if prefix == suffix :
             return length, prefix
 
-res = longestPrefixSuffix('tesatis longest tes')
+res = longestPrefixSuffix('abcab')
 print(res)
