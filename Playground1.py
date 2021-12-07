@@ -1,23 +1,14 @@
-def loveSeventeen(S):
-    number_map = {}
-    for num in S:
-        val = int(num)
-        if val in number_map:
-            number_map[val] += 1 
-        else:
-            number_map[val] = 1 
-    print(number_map)
-    for num in number_map.keys():
-        req = 17 - num
-        if req in number_map and number_map[req] > 0 and number_map[num] > 0:
-            remove = min(number_map[req],number_map[num])
-            number_map[req] -= remove
-            number_map[num] -= remove
-    print(number_map)
-    left = 0
-    for val in number_map:
-        left += number_map[val] 
-    return left
+def ReversedCharacters(cls, input1):
+    new_res = ''
+    for word in input1.split(' '):
+        reversed_word = word[::-1]
+        reversed_word = reversed_word.capitalize()
+        new_res += reversed_word + ' '
+    return new_res[:-1]
+
+res = ReversedCharacters('cls','Hello World')
+print(res)
+res = ReversedCharacters('something','are you sure you don\'t want to come for the party?')
+print(res)
 
 
-print(loveSeventeen('389889'))

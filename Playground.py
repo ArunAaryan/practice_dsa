@@ -1,32 +1,17 @@
-def getMaxXor(k):
-	k = (2 ** k) - 1
-	LXR = 0 ^ k 
+def printCurrentSong(distance, speed, songDuration):
+	time_in_minutes = distance / speed
+	current_song = 0
+	for idx, song in enumerate(songDuration):
+		current_song += 1
+		minutes = int(song.split(':')[0])
+		seconds = int(song.split(":")[1])
+		t_seconds = (minutes * 60) + seconds
+		time_in_minutes -= t_seconds 
+		if time_in_minutes <= 0:
+			print (current_song)
+	print( current_song)
 
-	msbPos = 0
-	while(LXR):
-		msbPos += 1
-		LXR >>= 1
-	maxXOR, two = 0, 1
-	while (msbPos):
-		maxXOR += two
-		two <<= 1
-		msbPos -= 1
-	return maxXOR
-def getFact(n):
-	f = 1
-	for i in range(1, n + 1):
-		f = f * i
-	return f
-res = getMaxXor(2)
-from itertools import permutations
-def getAllPairs(n, k):
-	k = (2 ** k) - 1
-	k = getFact(k)
-	print(k)
-	r = k - n
-	r = getFact(r)
-	print(k, r, k / r)
+res = printCurrentSong(2000, 5, ['05:30', '02:04']) 
+print(res)
 
-	# for perm in p:
-		# print(p)
-res = getAllPairs(4, 3)
+
