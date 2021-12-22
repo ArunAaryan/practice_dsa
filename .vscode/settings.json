@@ -6,5 +6,8 @@
     "other": false,
     "comments": false,
     "strings": false
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
   }
 }

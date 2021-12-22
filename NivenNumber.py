@@ -6,8 +6,7 @@ def niven_number(n):
         sum += r
         n //= 10
     return nc // sum
-    
+
 
 res = niven_number(57)
 print(res)
-    
